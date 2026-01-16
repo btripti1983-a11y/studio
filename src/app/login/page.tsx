@@ -36,11 +36,11 @@ export default function LoginPage() {
     try {
       await loginWithCode(code);
       router.push('/dashboard');
-    } catch (error) {
+    } catch (error: any) {
       toast({
         variant: "destructive",
         title: "Login Failed",
-        description: "Invalid access code. Please try again.",
+        description: error.message || "Invalid access code. Please try again.",
       });
       setLoading(false);
     }

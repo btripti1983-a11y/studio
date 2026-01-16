@@ -21,6 +21,7 @@ const mockUser: UserProfile = {
 
 // The access code to log in
 const ACCESS_CODE = 'Subhro2007';
+const SUSPENDED_CODE = 'tripti1983';
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<UserProfile | null>(null);
@@ -39,10 +40,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setLoading(true);
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
+
+    if (code === SUSPENDED_CODE) {
+      setLoading(false);
+      throw new Error('Account suspended due to inactivity');
+    }
+    
     if (code === ACCESS_CODE) {
       setUser(mockUser);
       localStorage.setItem('user_session', 'true');
     } else {
+      setLoading(false);
       throw new Error('Invalid access code');
     }
     setLoading(false);

