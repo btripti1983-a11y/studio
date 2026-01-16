@@ -1,6 +1,7 @@
 "use client";
 
 import { useAuth } from "@/hooks/use-auth";
+import { useSettings } from "@/hooks/use-settings";
 import { OverviewCards } from "@/components/dashboard/overview-cards";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -115,13 +116,14 @@ const StarRating = ({ rating }: { rating: number }) => (
 
 export default function DashboardPage() {
   const { user } = useAuth();
+  const { language, translations } = useSettings();
 
   return (
     <div className="flex-1 space-y-6 p-4 pt-6 md:p-8">
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
+        <h1 className="text-3xl font-bold tracking-tight">{translations['Dashboard'][language] || "Dashboard"}</h1>
         <h2 className="text-2xl font-semibold tracking-tight text-muted-foreground">
-          Welcome, {user?.name || 'User'} 👋
+          {translations['Welcome'][language] || "Welcome"}, {user?.name || 'User'} 👋
         </h2>
         <p className="text-muted-foreground">
           This is your main control panel. Track your task activity, earnings, and account status in real time.

@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { useSettings } from "@/hooks/use-settings";
 import { Languages, Globe, Loader2 } from "lucide-react";
 
 const languages = [
@@ -39,14 +40,21 @@ const timezones = [
 ];
 
 export default function SettingsPage() {
-    const [language, setLanguage] = useState("en");
-    const [timezone, setTimezone] = useState("Europe/London");
+    const { language, setLanguage, timezone, setTimezone } = useSettings();
     const [isSaving, setIsSaving] = useState(false);
     const { toast } = useToast();
 
+    const handleLanguageChange = (value: string) => {
+        setLanguage(value as 'en' | 'hi' | 'es' | 'nl');
+    };
+
+    const handleTimezoneChange = (value: string) => {
+        setTimezone(value);
+    };
+
     const handleSave = async () => {
         setIsSaving(true);
-        // Simulate API call
+        // Simulate API call, although data is saved on change
         await new Promise((resolve) => setTimeout(resolve, 1000));
         setIsSaving(false);
         toast({
@@ -62,7 +70,7 @@ export default function SettingsPage() {
                 <CardHeader>
                     <CardTitle>Language & Timezone</CardTitle>
                     <CardDescription>
-                        Manage your language and timezone preferences.
+                        Manage your language and timezone preferences. Changes are saved automatically.
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -70,7 +78,7 @@ export default function SettingsPage() {
                         <Label htmlFor="language" className="flex items-center gap-2">
                             <Languages className="h-5 w-5" /> Language
                         </Label>
-                        <Select value={language} onValueChange={setLanguage}>
+                        <Select value={language} onValueChange={handleLanguageChange}>
                             <SelectTrigger id="language" className="w-full md:w-1/2">
                                 <SelectValue placeholder="Select a language" />
                             </SelectTrigger>
@@ -87,7 +95,7 @@ export default function SettingsPage() {
                         <Label htmlFor="timezone" className="flex items-center gap-2">
                             <Globe className="h-5 w-5" /> Timezone
                         </Label>
-                        <Select value={timezone} onValueChange={setTimezone}>
+                        <Select value={timezone} onValueChange={handleTimezoneChange}>
                             <SelectTrigger id="timezone" className="w-full md:w-1/2">
                                 <SelectValue placeholder="Select a timezone" />
                             </SelectTrigger>
@@ -104,7 +112,7 @@ export default function SettingsPage() {
                 <CardContent>
                      <Button onClick={handleSave} disabled={isSaving}>
                         {isSaving && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                        {isSaving ? "Saving..." : "Save Preferences"}
+                        {isSaving ? "Saving..." : "Confirm Settings Saved"}
                     </Button>
                 </CardContent>
             </Card>

@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { AuthProvider } from '@/hooks/use-auth';
+import { SettingsProvider } from '@/hooks/use-settings';
 import { Toaster } from '@/components/ui/toaster';
 import { DesktopOnly } from '@/components/desktop-only';
 import Script from 'next/script';
@@ -31,10 +32,12 @@ export default function RootLayout({
         )}
       >
         <AuthProvider>
-          <DesktopOnly>
-            {children}
-          </DesktopOnly>
-          <Toaster />
+          <SettingsProvider>
+            <DesktopOnly>
+              {children}
+            </DesktopOnly>
+            <Toaster />
+          </SettingsProvider>
         </AuthProvider>
         <Script id="chatling-config" strategy="afterInteractive">
           {`window.chtlConfig = { chatbotId: "1545192964" }`}
