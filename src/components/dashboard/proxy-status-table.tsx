@@ -13,10 +13,10 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Badge } from "@/components/ui/badge";
 
 const mockProxies: Proxy[] = [
-  { id: "proxy-1", name: "Netherlands-Proxy-01", status: "active", lastChecked: new Date() },
-  { id: "proxy-2", name: "Germany-Proxy-DE-4", status: "active", lastChecked: new Date() },
-  { id: "proxy-3", name: "USA-Link-NY-88", status: "inactive", lastChecked: new Date(Date.now() - 86400000 * 2) },
-  { id: "proxy-4", name: "UK-Proxy-West-2", status: "active", lastChecked: new Date() },
+  { id: "proxy-1", name: "Netherlands-Proxy-01", status: "active", lastChecked: new Date("2024-07-29T10:00:00Z") },
+  { id: "proxy-2", name: "Germany-Proxy-DE-4", status: "active", lastChecked: new Date("2024-07-29T11:00:00Z") },
+  { id: "proxy-3", name: "USA-Link-NY-88", status: "inactive", lastChecked: new Date("2024-07-27T09:00:00Z") },
+  { id: "proxy-4", name: "UK-Proxy-West-2", status: "active", lastChecked: new Date("2024-07-29T12:00:00Z") },
 ];
 
 export function ProxyStatusTable() {

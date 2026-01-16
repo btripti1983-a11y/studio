@@ -4,6 +4,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { AuthProvider } from '@/hooks/use-auth';
 import { Toaster } from '@/components/ui/toaster';
+import { DesktopOnly } from '@/components/desktop-only';
 
 const fontInter = Inter({
   subsets: ['latin'],
@@ -35,7 +36,9 @@ export default function RootLayout({
         )}
       >
         <AuthProvider>
-          {children}
+          <DesktopOnly>
+            {children}
+          </DesktopOnly>
           <Toaster />
         </AuthProvider>
       </body>

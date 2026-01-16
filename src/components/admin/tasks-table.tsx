@@ -28,10 +28,10 @@ import { summarizeSubmittedTask } from '@/ai/flows/summarize-submitted-task';
 import { ScrollArea } from '../ui/scroll-area';
 
 const initialMockTasks: Task[] = [
-  { id: 'task-1', userId: 'user-a', userEmail: 'user.a@test.com', question: "What is the capital of France?", answer: "Paris. It's known for the Eiffel Tower.", status: 'approved', createdAt: new Date(Date.now() - 86400000 * 2), reward: 5 },
-  { id: 'task-2', userId: 'user-b', userEmail: 'user.b@test.com', question: "Explain the theory of relativity.", answer: "It's about time and space being relative and was developed by Einstein. It includes both special and general relativity.", status: 'pending', createdAt: new Date(Date.now() - 3600000), reward: 10 },
-  { id: 'task-3', userId: 'user-c', userEmail: 'user.c@test.com', question: "What are the primary colors?", answer: "Red, green, blue.", status: 'rejected', createdAt: new Date(Date.now() - 86400000), reward: 2 },
-  { id: 'task-4', userId: 'user-d', userEmail: 'user.d@test.com', question: "Describe photosynthesis.", answer: "Photosynthesis is a process used by plants, algae and certain bacteria to harness energy from sunlight and turn it into chemical energy.", status: 'pending', createdAt: new Date(), reward: 8 },
+  { id: 'task-1', userId: 'user-a', userEmail: 'user.a@test.com', question: "What is the capital of France?", answer: "Paris. It's known for the Eiffel Tower.", status: 'approved', createdAt: new Date("2024-07-27T10:00:00Z"), reward: 5 },
+  { id: 'task-2', userId: 'user-b', userEmail: 'user.b@test.com', question: "Explain the theory of relativity.", answer: "It's about time and space being relative and was developed by Einstein. It includes both special and general relativity.", status: 'pending', createdAt: new Date("2024-07-29T09:00:00Z"), reward: 10 },
+  { id: 'task-3', userId: 'user-c', userEmail: 'user.c@test.com', question: "What are the primary colors?", answer: "Red, green, blue.", status: 'rejected', createdAt: new Date("2024-07-28T10:00:00Z"), reward: 2 },
+  { id: 'task-4', userId: 'user-d', userEmail: 'user.d@test.com', question: "Describe photosynthesis.", answer: "Photosynthesis is a process used by plants, algae and certain bacteria to harness energy from sunlight and turn it into chemical energy.", status: 'pending', createdAt: new Date("2024-07-29T14:00:00Z"), reward: 8 },
 ];
 
 export function TasksTable() {

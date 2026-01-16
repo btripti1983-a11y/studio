@@ -16,10 +16,10 @@ import { ThumbsDown, ThumbsUp } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const initialMockWithdrawals: Withdrawal[] = [
-  { id: 'wd-1', userId: 'user-a', userEmail: 'user.a@test.com', amount: 50.00, walletAddress: 'bc1q...', status: 'approved', createdAt: new Date(Date.now() - 86400000 * 3) },
-  { id: 'wd-2', userId: 'user-b', userEmail: 'user.b@test.com', amount: 120.50, walletAddress: 'bc1q...', status: 'pending', createdAt: new Date(Date.now() - 3600000 * 2) },
-  { id: 'wd-3', userId: 'user-c', userEmail: 'user.c@test.com', amount: 75.25, walletAddress: 'bc1q...', status: 'rejected', createdAt: new Date(Date.now() - 86400000) },
-  { id: 'wd-4', userId: 'user-d', userEmail: 'user.d@test.com', amount: 200.00, walletAddress: 'bc1q...', status: 'pending', createdAt: new Date() },
+  { id: 'wd-1', userId: 'user-a', userEmail: 'user.a@test.com', amount: 50.00, walletAddress: 'bc1q...', status: 'approved', createdAt: new Date("2024-07-26T10:00:00Z") },
+  { id: 'wd-2', userId: 'user-b', userEmail: 'user.b@test.com', amount: 120.50, walletAddress: 'bc1q...', status: 'pending', createdAt: new Date("2024-07-29T08:00:00Z") },
+  { id: 'wd-3', userId: 'user-c', userEmail: 'user.c@test.com', amount: 75.25, walletAddress: 'bc1q...', status: 'rejected', createdAt: new Date("2024-07-28T10:00:00Z") },
+  { id: 'wd-4', userId: 'user-d', userEmail: 'user.d@test.com', amount: 200.00, walletAddress: 'bc1q...', status: 'pending', createdAt: new Date("2024-07-29T15:00:00Z") },
 ];
 
 export function WithdrawalsTable() {
