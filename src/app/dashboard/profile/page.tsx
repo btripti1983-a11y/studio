@@ -14,7 +14,6 @@ export default function ProfilePage() {
         dob: "September 10, 2007",
         email: "btripti1983@gmail.com",
         status: "Verified",
-        memberSince: "Jan 15, 2024",
         accountType: "Standard User",
         initials: "SB",
     };
@@ -61,7 +60,7 @@ export default function ProfilePage() {
                         <div className="flex items-center gap-4">
                             <Shield className="h-6 w-6 text-muted-foreground" />
                              <div>
-                                <p className="text-sm font-medium text-muted-foreground">NATION ID</p>
+                                <p className="text-sm font-medium text-muted-foreground">ID</p>
                                 <p className="font-semibold">{user.userId}</p>
                             </div>
                         </div>
@@ -77,13 +76,6 @@ export default function ProfilePage() {
                             <div>
                                 <p className="text-sm font-medium text-muted-foreground">Email Address</p>
                                 <p className="font-semibold">{user.email}</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-4">
-                            <Calendar className="h-6 w-6 text-muted-foreground" />
-                            <div>
-                                <p className="text-sm font-medium text-muted-foreground">Member Since</p>
-                                <p className="font-semibold">{user.memberSince}</p>
                             </div>
                         </div>
                     </div>
