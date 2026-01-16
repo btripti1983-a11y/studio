@@ -13,9 +13,11 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "../ui/button";
 
-const mockTickets: SupportTicket[] = [];
+interface MyTicketsTableProps {
+    tickets: SupportTicket[];
+}
 
-export function MyTicketsTable() {
+export function MyTicketsTable({ tickets }: MyTicketsTableProps) {
 
   const getStatusBadge = (status: SupportTicket['status']) => {
     switch (status) {
@@ -48,8 +50,8 @@ export function MyTicketsTable() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {mockTickets.length > 0 ? (
-              mockTickets.map((ticket) => (
+            {tickets.length > 0 ? (
+              tickets.map((ticket) => (
                 <TableRow key={ticket.id}>
                   <TableCell className="font-medium">{ticket.id}</TableCell>
                   <TableCell>{ticket.subject}</TableCell>

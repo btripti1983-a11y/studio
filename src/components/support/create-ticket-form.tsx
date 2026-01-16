@@ -9,8 +9,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
+import type { SupportTicket } from '@/types';
 
-const ticketCategories = [
+const ticketCategories: SupportTicket['category'][] = [
     'Task Issue',
     'Withdrawal Issue',
     'Account Access',
@@ -19,9 +20,13 @@ const ticketCategories = [
     'Other'
 ];
 
-export function CreateTicketForm() {
+interface CreateTicketFormProps {
+    onCreateTicket: (data: { subject: string; category: SupportTicket['category']; message: string }) => void;
+}
+
+export function CreateTicketForm({ onCreateTicket }: CreateTicketFormProps) {
     const [subject, setSubject] = useState('');
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState<SupportTicket['category'] | ''>('');
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
     const { toast } = useToast();
@@ -40,9 +45,10 @@ export function CreateTicketForm() {
 
         setLoading(true);
         // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        await new Promise(resolve => setTimeout(resolve, 1000));
 
-        console.log('New Ticket:', { subject, category, message });
+        // Call the parent handler to create the ticket
+        onCreateTicket({ subject, category, message });
 
         setLoading(false);
         setSubject('');
@@ -50,7 +56,7 @@ export function CreateTicketForm() {
         setMessage('');
         toast({
             title: 'Ticket Created',
-            description: 'Your support ticket has been successfully created. We will get back to you shortly.',
+            description: 'Your support ticket has been successfully created. You can see it in the "My Tickets" tab.',
         });
     };
 
@@ -73,7 +79,7 @@ export function CreateTicketForm() {
                     </div>
                     <div className="space-y-2">
                         <Label htmlFor="category">Category</Label>
-                        <Select onValueChange={setCategory} value={category}>
+                        <Select onValueChange={(value) => setCategory(value as SupportTicket['category'])} value={category}>
                             <SelectTrigger id="category">
                                 <SelectValue placeholder="Select a category" />
                             </SelectTrigger>
