@@ -40,11 +40,11 @@ export function AppSidebar() {
   };
 
   return (
-    <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
+    <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-primary text-primary-foreground sm:flex">
       <nav className="flex flex-col items-center gap-4 px-2 sm:py-5">
         <Link
           href="/dashboard"
-          className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
+          className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary-foreground text-lg font-semibold text-primary md:h-8 md:w-8 md:text-base"
         >
           <span className="font-bold">S</span>
           <span className="sr-only">Sumsub Dutch Rewards</span>
@@ -55,8 +55,8 @@ export function AppSidebar() {
             href={item.href}
             className={`flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8 ${
               pathname.startsWith(item.href)
-                ? "bg-accent text-accent-foreground"
-                : "text-muted-foreground hover:text-foreground"
+                ? "bg-blue-700 text-primary-foreground"
+                : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary/80"
             }`}
           >
             <item.icon className="h-5 w-5" />
@@ -68,9 +68,9 @@ export function AppSidebar() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
-              variant="outline"
+              variant="ghost"
               size="icon"
-              className="overflow-hidden rounded-full"
+              className="overflow-hidden rounded-full hover:bg-blue-700"
             >
               <User className="h-5 w-5" />
             </Button>

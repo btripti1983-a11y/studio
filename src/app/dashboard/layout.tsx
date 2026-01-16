@@ -57,11 +57,11 @@ export default function DashboardLayout({
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="sm:max-w-xs">
+            <SheetContent side="left" className="sm:max-w-xs bg-primary text-primary-foreground">
               <nav className="grid gap-6 text-lg font-medium">
                 <Link
                   href="/dashboard"
-                  className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
+                  className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary-foreground text-lg font-semibold text-primary md:text-base"
                 >
                   <span className="font-bold">S</span>
                   <span className="sr-only">Sumsub Dutch Rewards</span>
@@ -72,8 +72,8 @@ export default function DashboardLayout({
                     href={item.href}
                     className={`flex items-center gap-4 px-2.5 ${
                       pathname.startsWith(item.href)
-                        ? "text-foreground"
-                        : "text-muted-foreground hover:text-foreground"
+                        ? "text-primary-foreground font-semibold"
+                        : "text-primary-foreground/80 hover:text-primary-foreground"
                     }`}
                   >
                     <item.icon className="h-5 w-5" />
@@ -104,7 +104,7 @@ export default function DashboardLayout({
               </DropdownMenuContent>
             </DropdownMenu>
         </header>
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 bg-secondary">{children}</main>
       </div>
     </div>
   );

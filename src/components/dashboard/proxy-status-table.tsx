@@ -42,7 +42,7 @@ export function ProxyStatusTable() {
               <TableRow key={proxy.id}>
                 <TableCell className="font-medium">{proxy.name}</TableCell>
                 <TableCell>
-                  <Badge variant={proxy.status === 'active' ? 'default' : 'destructive'} className={proxy.status === 'active' ? 'bg-green-600' : ''}>
+                  <Badge variant={proxy.status === 'active' ? 'default' : 'destructive'} className={proxy.status === 'active' ? 'bg-green-500 hover:bg-green-500/90 text-primary-foreground' : ''}>
                     {proxy.status}
                   </Badge>
                 </TableCell>

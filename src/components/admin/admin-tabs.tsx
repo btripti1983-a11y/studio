@@ -31,8 +31,8 @@ export function AdminTabs() {
 
     const getStatusBadge = (status: SiteUser['status']) => {
         switch (status) {
-            case 'verified': return <Badge className="bg-green-600">Verified</Badge>;
-            case 'pending': return <Badge variant="secondary">Pending</Badge>;
+            case 'verified': return <Badge className="bg-green-500 hover:bg-green-500/90 text-primary-foreground">Verified</Badge>;
+            case 'pending': return <Badge className="bg-yellow-500 hover:bg-yellow-500/90 text-primary-foreground">Pending</Badge>;
             case 'rejected': return <Badge variant="destructive">Rejected</Badge>;
         }
     };
