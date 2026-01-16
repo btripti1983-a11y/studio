@@ -72,20 +72,25 @@ export default function DashboardLayout({
                   />
                   <span className="sr-only">Sumsub Dutch Rewards</span>
                 </Link>
-                {navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`flex items-center gap-4 px-2.5 ${
-                      pathname.startsWith(item.href)
-                        ? "text-primary-foreground font-semibold"
-                        : "text-primary-foreground/80 hover:text-primary-foreground"
-                    }`}
-                  >
-                    <item.icon className="h-5 w-5" />
-                    {item.label}
-                  </Link>
-                ))}
+                {navItems.map((item) => {
+                  const isActive = pathname.startsWith(item.href);
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`group flex items-center gap-4 px-2.5 transition-colors ${
+                        isActive
+                          ? "text-primary-foreground font-semibold"
+                          : "text-primary-foreground/80 hover:text-primary-foreground"
+                      }`}
+                    >
+                      <item.icon className={`h-5 w-5 transition-colors ${
+                        !isActive ? `${item.colorClass} group-hover:text-primary-foreground` : ''
+                      }`} />
+                      {item.label}
+                    </Link>
+                  );
+                })}
               </nav>
             </SheetContent>
           </Sheet>

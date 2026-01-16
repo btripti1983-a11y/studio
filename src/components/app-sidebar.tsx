@@ -26,13 +26,13 @@ import {
 import { useAuth } from "@/hooks/use-auth";
 
 export const navItems = [
-  { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
-  { href: "/dashboard/tasks", icon: ListTodo, label: "Tasks" },
-  { href: "/dashboard/withdraw", icon: Bitcoin, label: "Withdraw" },
-  { href: "/dashboard/support", icon: MessageSquare, label: "Support" },
-  { href: "/dashboard/team", icon: UsersRound, label: "Team" },
-  { href: "/dashboard/profile", icon: User, label: "Profile" },
-  { href: "/dashboard/admin", icon: Users, label: "Users" },
+  { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard", colorClass: "text-sky-400" },
+  { href: "/dashboard/tasks", icon: ListTodo, label: "Tasks", colorClass: "text-emerald-400" },
+  { href: "/dashboard/withdraw", icon: Bitcoin, label: "Withdraw", colorClass: "text-yellow-400" },
+  { href: "/dashboard/support", icon: MessageSquare, label: "Support", colorClass: "text-violet-400" },
+  { href: "/dashboard/team", icon: UsersRound, label: "Team", colorClass: "text-rose-400" },
+  { href: "/dashboard/profile", icon: User, label: "Profile", colorClass: "text-orange-400" },
+  { href: "/dashboard/admin", icon: Users, label: "Users", colorClass: "text-red-400" },
 ];
 
 export function AppSidebar() {
@@ -60,20 +60,27 @@ export function AppSidebar() {
           />
           <span className="sr-only">Sumsub Dutch Rewards</span>
         </Link>
-        {navItems.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={`flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8 ${
-              pathname.startsWith(item.href)
-                ? "bg-blue-700 text-primary-foreground"
-                : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary/80"
-            }`}
-          >
-            <item.icon className="h-5 w-5" />
-            <span className="sr-only">{item.label}</span>
-          </Link>
-        ))}
+        {navItems.map((item) => {
+          const isActive = pathname.startsWith(item.href);
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`group flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8 ${
+                isActive
+                  ? "bg-blue-700 text-primary-foreground"
+                  : "hover:bg-primary/80"
+              }`}
+            >
+              <item.icon className={`h-5 w-5 transition-colors ${
+                isActive 
+                  ? 'text-primary-foreground' 
+                  : `${item.colorClass} group-hover:text-primary-foreground`
+              }`} />
+              <span className="sr-only">{item.label}</span>
+            </Link>
+          );
+        })}
       </nav>
       <nav className="mt-auto flex flex-col items-center gap-4 px-2 sm:py-5">
         <DropdownMenu>
