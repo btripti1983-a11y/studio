@@ -14,6 +14,7 @@ import {
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
+import { Loader2, RefreshCw } from 'lucide-react';
 
 const initialMockUsers: SiteUser[] = [
     { id: "user-1", email: "arjun.nova27@gmail.com", status: "pending", proxy: "res.proxy-seller.com:10021:05fc10bdf3bd71a1:tM6LIvN1", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvA?from=linkMobile" },
@@ -28,9 +29,69 @@ const initialMockUsers: SiteUser[] = [
     { id: "user-10", email: "frostline.mail@icloud.com", status: "pending", proxy: "res.proxy-seller.com:10030:05fc10bdf3bd71a0:tM6LIvN0", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvJ?from=linkMobile" },
 ];
 
+const mockProxies = [
+    "res.proxy-seller.com:10021:05fc10bd0001a1:tM6LIv0001",
+    "res.proxy-seller.com:10021:05fc10bd0002a2:tM6LIv0002",
+    "res.proxy-seller.com:10021:05fc10bd0003a3:tM6LIv0003",
+    "res.proxy-seller.com:10021:05fc10bd0004a4:tM6LIv0004",
+    "res.proxy-seller.com:10021:05fc10bd0005a5:tM6LIv0005",
+    "res.proxy-seller.com:10021:05fc10bd0006a6:tM6LIv0006",
+    "res.proxy-seller.com:10021:05fc10bd0007a7:tM6LIv0007",
+    "res.proxy-seller.com:10021:05fc10bd0008a8:tM6LIv0008",
+    "res.proxy-seller.com:10021:05fc10bd0009a0:tM6LIv0009",
+    "res.proxy-seller.com:10021:05fc10bd0010a1:tM6LIv0010",
+    "res.proxy-seller.com:10021:05fc10bd0011a2:tM6LIv0011",
+    "res.proxy-seller.com:10021:05fc10bd0012a3:tM6LIv0012",
+    "res.proxy-seller.com:10021:05fc10bd0013a4:tM6LIv0013",
+    "res.proxy-seller.com:10021:05fc10bd0014a5:tM6LIv0014",
+    "res.proxy-seller.com:10021:05fc10bd0015a6:tM6LIv0015",
+    "res.proxy-seller.com:10021:05fc10bd0016a7:tM6LIv0016",
+    "res.proxy-seller.com:10021:05fc10bd0017a8:tM6LIv0017",
+    "res.proxy-seller.com:10021:05fc10bd0018a0:tM6LIv0018",
+    "res.proxy-seller.com:10021:05fc10bd0019a1:tM6LIv0019",
+    "res.proxy-seller.com:10021:05fc10bd0020a2:tM6LIv0020",
+];
+
+const mockSumsubLinks = [
+    "https://in.sumsub.com/websdk/p/wXfhr6II0001EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0002EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0003EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0004EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0005EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0006EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0007EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0008EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0009EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0010EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0011EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0012EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0013EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0014EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0015EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0016EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0017EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0018EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0019EimbXvY?from=linkMobile",
+    "https://in.sumsub.com/websdk/p/wXfhr6II0020EimbXvY?from=linkMobile",
+];
+
 // This component now renders the Users panel
 export function AdminTabs() { 
     const [users, setUsers] = useState<SiteUser[]>(initialMockUsers);
+    const [isUpdating, setIsUpdating] = useState(false);
+
+    const handleUpdate = () => {
+        setIsUpdating(true);
+        setTimeout(() => {
+            const updatedUsers = users.map(user => ({
+                ...user,
+                proxy: mockProxies[Math.floor(Math.random() * mockProxies.length)],
+                sumsubLink: mockSumsubLinks[Math.floor(Math.random() * mockSumsubLinks.length)],
+            }));
+            setUsers(updatedUsers);
+            setIsUpdating(false);
+        }, 5500);
+    };
 
     const getStatusBadge = (status: SiteUser['status']) => {
         switch (status) {
@@ -42,9 +103,15 @@ export function AdminTabs() {
 
     return (
       <Card>
-        <CardHeader>
-            <CardTitle>User Management</CardTitle>
-            <CardDescription>View and manage user statuses.</CardDescription>
+        <CardHeader className="flex flex-row items-center justify-between">
+            <div>
+                <CardTitle>User Management</CardTitle>
+                <CardDescription>View and manage user statuses.</CardDescription>
+            </div>
+            <Button onClick={handleUpdate} disabled={isUpdating}>
+                {isUpdating ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <RefreshCw className="mr-2 h-4 w-4" />}
+                {isUpdating ? "Updating..." : "Update Link & Proxy"}
+            </Button>
         </CardHeader>
         <CardContent>
             <Table>
