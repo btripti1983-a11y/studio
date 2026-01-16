@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/use-auth';
 import { AppSidebar, navItems } from '@/components/app-sidebar';
-import { Loader2, PanelLeft, User, LogOut } from 'lucide-react';
+import { Loader2, PanelLeft, User, LogOut, CheckCircle2 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -121,10 +121,14 @@ export default function DashboardLayout({
             <div className="flex-1">
                 {children}
             </div>
-            <footer className="w-full bg-secondary py-4 text-center text-sm text-muted-foreground">
-                <Link href="/terms-of-service" className="mx-2 hover:text-primary">Terms of Service</Link> |
-                <Link href="/terms-and-conditions" className="mx-2 hover:text-primary">Terms & Conditions</Link> |
-                <Link href="/privacy-policy" className="mx-2 hover:text-primary">Privacy Policy</Link>
+            <footer className="w-full bg-secondary py-3 px-4 sm:px-6 text-sm text-muted-foreground flex justify-between items-center border-t">
+                <div className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-500" />
+                    <Link href="/status" className="hover:text-primary">All services are online</Link>
+                </div>
+                <div>
+                    <span>© Copyright 2026 Sumsub NL Limited</span>
+                </div>
             </footer>
         </main>
       </div>
