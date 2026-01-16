@@ -47,8 +47,20 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
-      <main className="flex w-full max-w-sm flex-1 flex-col items-center justify-center">
+    <div className="relative flex min-h-screen flex-col items-center justify-center bg-background p-4 overflow-hidden">
+      {/* Background Shapes */}
+      <div className="absolute inset-0 z-0">
+          <div 
+              className="absolute top-[-25%] left-[-25%] w-1/2 h-1/2 bg-primary/5 rounded-full filter blur-3xl opacity-50 animate-pulse"
+              style={{ animationDuration: '12s' }}
+          ></div>
+          <div 
+              className="absolute bottom-[-25%] right-[-25%] w-1/2 h-1/2 bg-blue-700/5 rounded-full filter blur-3xl opacity-50 animate-pulse"
+              style={{ animationDelay: '6s', animationDuration: '15s' }}
+          ></div>
+      </div>
+
+      <main className="z-10 flex w-full max-w-sm flex-1 flex-col items-center justify-center">
         <Image
           src="https://res.cloudinary.com/deawcz3cy/image/upload/v1768555145/download_czwjhc.png"
           width={64}
@@ -56,7 +68,7 @@ export default function LoginPage() {
           alt="Sumsub Dutch Rewards Logo"
           className="mb-4 rounded-lg"
         />
-        <Card className="w-full">
+        <Card className="w-full bg-background/80 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="text-2xl">Enter Access Code</CardTitle>
             <CardDescription>
@@ -107,7 +119,7 @@ export default function LoginPage() {
                     <span className="w-full border-t" />
                 </div>
                 <div className="relative flex justify-center text-xs uppercase">
-                    <span className="bg-background px-2 text-muted-foreground">
+                    <span className="bg-background/80 px-2 text-muted-foreground">
                     Or
                     </span>
                 </div>
@@ -123,7 +135,7 @@ export default function LoginPage() {
             </div>
         </Card>
       </main>
-      <footer className="w-full py-4 text-center text-sm text-muted-foreground">
+      <footer className="z-10 w-full py-4 text-center text-sm text-muted-foreground">
           <Link href="/terms-of-service" className="mx-2 hover:text-primary">Terms of Service</Link> |
           <Link href="/terms-and-conditions" className="mx-2 hover:text-primary">Terms & Conditions</Link> |
           <Link href="/privacy-policy" className="mx-2 hover:text-primary">Privacy Policy</Link>
