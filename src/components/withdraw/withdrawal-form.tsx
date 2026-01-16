@@ -8,10 +8,15 @@ import { Input } from "@/components/ui/input";
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
 import { useAuth } from '@/hooks/use-auth';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
+const payoutMethods = ["USDT", "BTC", "TRX", "LTC"];
+
 
 export function WithdrawalForm() {
     const [amount, setAmount] = useState('');
     const [walletAddress, setWalletAddress] = useState('');
+    const [currency, setCurrency] = useState('BTC');
     const [loading, setLoading] = useState(false);
     const { toast } = useToast();
     const { user } = useAuth();
@@ -44,7 +49,7 @@ export function WithdrawalForm() {
             toast({
                 variant: 'destructive',
                 title: 'Wallet Address Required',
-                description: 'Please enter your BTC wallet address.',
+                description: 'Please enter your wallet address.',
             });
             return;
         }
@@ -53,7 +58,7 @@ export function WithdrawalForm() {
         // Simulate API call to save the withdrawal request
         await new Promise(resolve => setTimeout(resolve, 1500));
         
-        console.log('Withdrawal Request:', { amount: withdrawalAmount, walletAddress });
+        console.log('Withdrawal Request:', { currency, amount: withdrawalAmount, walletAddress });
 
         setLoading(false);
         setAmount('');
@@ -68,11 +73,24 @@ export function WithdrawalForm() {
         <Card>
             <CardHeader>
                 <CardTitle>Request Withdrawal</CardTitle>
-                <CardDescription>Enter your BTC wallet address and the amount you wish to withdraw.</CardDescription>
+                <CardDescription>Select your currency, enter your wallet address, and the amount you wish to withdraw.</CardDescription>
                  <CardDescription className="pt-2">Available to withdraw: <span className="font-bold text-primary">${balance.toFixed(2)}</span></CardDescription>
             </CardHeader>
             <form onSubmit={handleSubmit}>
                 <CardContent className="space-y-4">
+                    <div className="space-y-2">
+                        <Label htmlFor="currency">Payout Currency</Label>
+                        <Select onValueChange={setCurrency} defaultValue={currency}>
+                            <SelectTrigger id="currency">
+                                <SelectValue placeholder="Select a currency" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {payoutMethods.map((method) => (
+                                    <SelectItem key={method} value={method}>{method}</SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                    </div>
                     <div className="space-y-2">
                         <Label htmlFor="amount">Amount (USD)</Label>
                         <Input
@@ -86,11 +104,11 @@ export function WithdrawalForm() {
                         />
                     </div>
                     <div className="space-y-2">
-                        <Label htmlFor="walletAddress">BTC Wallet Address</Label>
+                        <Label htmlFor="walletAddress">Wallet Address</Label>
                         <Input
                             id="walletAddress"
                             type="text"
-                            placeholder="bc1q..."
+                            placeholder="Enter your wallet address"
                             value={walletAddress}
                             onChange={(e) => setWalletAddress(e.target.value)}
                         />
