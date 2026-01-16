@@ -3,25 +3,25 @@
     {
       "id": "satraj-bambra",
       "description": "Profile picture of Satraj Bambra",
-      "imageUrl": "https://images.unsplash.com/photo-1594672830234-ba4cfe1202dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bWFuJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY4NDg1MDE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://res.cloudinary.com/deawcz3cy/image/upload/v1768559102/avatar-satraj_vbuzv1.png",
       "imageHint": "man portrait"
     },
     {
       "id": "megha-bambra",
       "description": "Profile picture of Megha Bambra",
-      "imageUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc2ODU1NDczMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://res.cloudinary.com/deawcz3cy/image/upload/v1768559102/avatar-megha_lqdz07.png",
       "imageHint": "woman portrait"
     },
     {
       "id": "rick-marini",
       "description": "Profile picture of Rick Marini",
-      "imageUrl": "https://images.unsplash.com/photo-1583195763986-0231686dcd43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3Njg0ODUwMTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://res.cloudinary.com/deawcz3cy/image/upload/v1768559103/avatar-rick_miapxc.png",
       "imageHint": "man portrait"
     },
     {
       "id": "brent-vegliacich",
       "description": "Profile picture of Brent Vegliacich",
-      "imageUrl": "https://images.unsplash.com/photo-1636377985931-898218afd306?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3Njg0ODUwMTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://res.cloudinary.com/deawcz3cy/image/upload/v1768559102/avatar-brent_cyeszl.png",
       "imageHint": "man portrait"
     }
   ]
