@@ -166,7 +166,7 @@ export default function DashboardPage() {
                 <CardTitle className="flex items-center gap-2"><Clock className="h-6 w-6 text-primary" /> Work Schedule</CardTitle>
             </CardHeader>
             <CardContent>
-                <p className="text-lg font-semibold">Work can be started from 9:00 AM UTC onwards.</p>
+                <p className="text-lg font-semibold">Work can be started from 14:00 UTC onwards.</p>
                 <p className="text-muted-foreground">Please adhere to the schedule for task availability.</p>
                 <div className="mt-4 rounded-md border border-amber-300 bg-amber-50 p-3">
                     <p className="text-sm font-semibold text-amber-800">Important Announcement</p>

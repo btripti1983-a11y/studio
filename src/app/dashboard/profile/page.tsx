@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
-import { User, Calendar, Mail, ShieldCheck, Clock, Shield } from "lucide-react";
+import { User, Calendar, Mail, ShieldCheck, Shield } from "lucide-react";
 
 export default function ProfilePage() {
     const user = {
@@ -16,7 +16,6 @@ export default function ProfilePage() {
         status: "Verified",
         memberSince: "Jan 15, 2024",
         accountType: "Standard User",
-        lastLogin: "July 30, 2024 at 10:45 AM",
         initials: "SB",
     };
 
@@ -62,7 +61,7 @@ export default function ProfilePage() {
                         <div className="flex items-center gap-4">
                             <Shield className="h-6 w-6 text-muted-foreground" />
                              <div>
-                                <p className="text-sm font-medium text-muted-foreground">User ID</p>
+                                <p className="text-sm font-medium text-muted-foreground">NATION ID</p>
                                 <p className="font-semibold">{user.userId}</p>
                             </div>
                         </div>
@@ -85,13 +84,6 @@ export default function ProfilePage() {
                             <div>
                                 <p className="text-sm font-medium text-muted-foreground">Member Since</p>
                                 <p className="font-semibold">{user.memberSince}</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-4">
-                            <Clock className="h-6 w-6 text-muted-foreground" />
-                            <div>
-                                <p className="text-sm font-medium text-muted-foreground">Last Login</p>
-                                <p className="font-semibold">{user.lastLogin}</p>
                             </div>
                         </div>
                     </div>
