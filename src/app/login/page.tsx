@@ -92,6 +92,25 @@ export default function LoginPage() {
               </Button>
             </CardFooter>
           </form>
+          <div className="relative mb-4 px-6">
+                <div className="absolute inset-0 flex items-center">
+                    <span className="w-full border-t" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                    <span className="bg-background px-2 text-muted-foreground">
+                    Or
+                    </span>
+                </div>
+            </div>
+            <div className="px-6 pb-6 text-center text-sm">
+                <span className="text-muted-foreground">Don&apos;t have an access code? </span>
+                <Link
+                    href="/signup"
+                    className="font-medium text-primary underline-offset-4 hover:underline"
+                >
+                    Request Access
+                </Link>
+            </div>
         </Card>
       </main>
       <footer className="w-full py-4 text-center text-sm text-muted-foreground">
