@@ -15,7 +15,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 const mockUser: UserProfile = {
   uid: 'mock-user-uid',
   email: 'demo@user.com',
-  name: 'Demo User',
+  name: 'Subhra Biswas',
   balance: 0,
 };
 
