@@ -104,7 +104,15 @@ export default function DashboardLayout({
               </DropdownMenuContent>
             </DropdownMenu>
         </header>
-        <main className="flex-1 bg-secondary">{children}</main>
+        <main className="flex flex-1 flex-col bg-secondary">
+            <div className="flex-1">
+                {children}
+            </div>
+            <footer className="w-full bg-secondary py-4 text-center text-sm text-muted-foreground">
+                <Link href="/terms-of-service" className="mx-2 hover:text-primary">Terms of Service</Link> |
+                <Link href="/terms-and-conditions" className="mx-2 hover:text-primary">Terms & Conditions</Link>
+            </footer>
+        </main>
       </div>
     </div>
   );
