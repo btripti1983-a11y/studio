@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { AuthProvider } from '@/hooks/use-auth';
 import { Toaster } from '@/components/ui/toaster';
 import { DesktopOnly } from '@/components/desktop-only';
+import Script from 'next/script';
 
 const fontInter = Inter({
   subsets: ['latin'],
@@ -35,6 +36,16 @@ export default function RootLayout({
           </DesktopOnly>
           <Toaster />
         </AuthProvider>
+        <Script id="chatling-config" strategy="afterInteractive">
+          {`window.chtlConfig = { chatbotId: "1545192964" }`}
+        </Script>
+        <Script 
+          id="chtl-script"
+          src="https://chatling.ai/js/embed.js"
+          data-id="1545192964"
+          async
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

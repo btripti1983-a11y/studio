@@ -9,7 +9,6 @@ import {
   LogOut,
   Users,
   User,
-  Sparkles,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -28,7 +27,6 @@ export const navItems = [
   { href: "/dashboard/tasks", icon: ListTodo, label: "Tasks" },
   { href: "/dashboard/withdraw", icon: Bitcoin, label: "Withdraw" },
   { href: "/dashboard/admin", icon: Users, label: "Users" },
-  { href: "/dashboard/ask-ai", icon: Sparkles, label: "Ask AI" },
 ];
 
 export function AppSidebar() {
