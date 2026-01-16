@@ -12,6 +12,7 @@ import {
   User,
   MessageSquare,
   UsersRound,
+  Settings,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -32,6 +33,7 @@ export const navItems = [
   { href: "/dashboard/support", icon: MessageSquare, label: "Support", colorClass: "text-violet-400" },
   { href: "/dashboard/team", icon: UsersRound, label: "Team", colorClass: "text-rose-400" },
   { href: "/dashboard/profile", icon: User, label: "Profile", colorClass: "text-orange-400" },
+  { href: "/dashboard/settings", icon: Settings, label: "Settings", colorClass: "text-slate-400" },
   { href: "/dashboard/admin", icon: Users, label: "Users", colorClass: "text-red-400" },
 ];
 
