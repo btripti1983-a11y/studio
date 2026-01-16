@@ -1,5 +1,7 @@
+
 "use client";
 
+import { useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { useSettings } from "@/hooks/use-settings";
 import { OverviewCards } from "@/components/dashboard/overview-cards";
@@ -21,6 +23,7 @@ import {
   Bitcoin,
   Clock,
   UserCheck,
+  X,
 } from "lucide-react";
 
 // Data for new sections
@@ -117,9 +120,30 @@ const StarRating = ({ rating }: { rating: number }) => (
 export default function DashboardPage() {
   const { user } = useAuth();
   const { language, translations } = useSettings();
+  const [showNotice, setShowNotice] = useState(true);
 
   return (
     <div className="flex-1 space-y-6 p-4 pt-6 md:p-8">
+      
+      {showNotice && (
+        <Alert className="relative border-blue-200 bg-blue-50/50 text-blue-900 shadow-sm">
+          <Info className="h-5 w-5 text-blue-600" />
+          <AlertTitle className="font-bold">Important Notice</AlertTitle>
+          <AlertDescription className="space-y-1 pr-6">
+            <p>If proxies are slow or not working properly, please change them from the Users section.</p>
+            <p>All access links automatically expire after 10 minutes. If a link expires, you must renew it before continuing.</p>
+            <p className="mt-2 font-semibold text-blue-900/80">Failure to update proxies or renew expired links may result in task delays or failed submissions.</p>
+          </AlertDescription>
+          <button
+            onClick={() => setShowNotice(false)}
+            className="absolute top-3 right-3 p-1 rounded-full text-blue-700/70 hover:bg-blue-100 hover:text-blue-800 transition-colors"
+            aria-label="Dismiss notice"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </Alert>
+      )}
+      
       <div className="space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">{translations['Dashboard'][language] || "Dashboard"}</h1>
         <h2 className="text-2xl font-semibold tracking-tight text-muted-foreground">
