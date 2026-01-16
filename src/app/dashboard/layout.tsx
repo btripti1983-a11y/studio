@@ -34,7 +34,7 @@ export default function DashboardLayout({
 
   const handleLogout = async () => {
     await logout();
-    router.push("/login");
+    router.push("/signup");
   };
 
   if (loading || !user) {
