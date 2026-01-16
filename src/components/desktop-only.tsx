@@ -2,7 +2,7 @@
 
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Smartphone, Loader2 } from "lucide-react";
+import { AlertTriangle, Loader2 } from "lucide-react";
 
 export function DesktopOnly({ children }: { children: React.ReactNode }) {
     const isMobile = useIsMobile();
@@ -18,16 +18,27 @@ export function DesktopOnly({ children }: { children: React.ReactNode }) {
     if (isMobile) {
         return (
             <div className="flex h-screen w-full items-center justify-center bg-background p-4">
-                <Card className="w-full max-w-md text-center">
+                <Card className="w-full max-w-lg text-center border-destructive bg-destructive/5">
                     <CardHeader>
-                        <CardTitle className="flex justify-center items-center gap-2">
-                            <Smartphone className="h-6 w-6" /> Access Denied
+                        <CardTitle className="flex justify-center items-center gap-2 text-destructive">
+                            <AlertTriangle className="h-6 w-6" /> Security Violation Detected
                         </CardTitle>
                     </CardHeader>
-                    <CardContent>
-                        <p className="text-lg">
-                           This platform is accessible only from desktop or laptop computers.
-                           Mobile devices are not supported.
+                    <CardContent className="space-y-3 pt-6">
+                        <p className="text-base text-foreground/90">
+                            This platform uses GPU-level hardware verification to detect mobile devices,
+                            desktop mode spoofing, and emulation.
+                        </p>
+                        <p className="text-base text-foreground/90">
+                            Attempts to access this platform from a mobile device, even using desktop mode,
+                            will be detected and logged.
+                        </p>
+                        <p className="font-semibold text-destructive">
+                            Bypassing or emulating a desktop environment may result in account suspension
+                            or permanent access restriction.
+                        </p>
+                        <p className="text-base text-foreground/90 pt-2">
+                            Please use a genuine desktop or laptop computer to continue.
                         </p>
                     </CardContent>
                 </Card>
