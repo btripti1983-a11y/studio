@@ -28,7 +28,8 @@ export function DesktopOnly({ children }: { children: React.ReactNode }) {
                     </CardHeader>
                     <CardContent>
                         <p className="text-lg">
-                           This platform is only accessible from a desktop computer.
+                           This platform is accessible only from desktop or laptop computers.
+                           Mobile devices are not supported.
                         </p>
                     </CardContent>
                 </Card>
