@@ -110,7 +110,8 @@ export default function DashboardLayout({
             </div>
             <footer className="w-full bg-secondary py-4 text-center text-sm text-muted-foreground">
                 <Link href="/terms-of-service" className="mx-2 hover:text-primary">Terms of Service</Link> |
-                <Link href="/terms-and-conditions" className="mx-2 hover:text-primary">Terms & Conditions</Link>
+                <Link href="/terms-and-conditions" className="mx-2 hover:text-primary">Terms & Conditions</Link> |
+                <Link href="/privacy-policy" className="mx-2 hover:text-primary">Privacy Policy</Link>
             </footer>
         </main>
       </div>

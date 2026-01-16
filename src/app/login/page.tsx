@@ -26,7 +26,7 @@ export default function LoginPage() {
       toast({
         variant: "destructive",
         title: "Agreement Required",
-        description: "You must agree to the terms and conditions to proceed.",
+        description: "You must agree to the terms and policies to proceed.",
       });
       return;
     }
@@ -77,10 +77,12 @@ export default function LoginPage() {
                   I agree to the{' '}
                   <Link href="/terms-of-service" className="underline hover:text-primary" target="_blank" rel="noopener noreferrer">
                     Terms of Service
-                  </Link>{' '}
-                  and{' '}
+                  </Link>{', '}
                   <Link href="/terms-and-conditions" className="underline hover:text-primary" target="_blank" rel="noopener noreferrer">
                     Terms & Conditions
+                  </Link>{', and '}
+                  <Link href="/privacy-policy" className="underline hover:text-primary" target="_blank" rel="noopener noreferrer">
+                    Privacy Policy
                   </Link>
                 </label>
               </div>
@@ -115,7 +117,8 @@ export default function LoginPage() {
       </main>
       <footer className="w-full py-4 text-center text-sm text-muted-foreground">
           <Link href="/terms-of-service" className="mx-2 hover:text-primary">Terms of Service</Link> |
-          <Link href="/terms-and-conditions" className="mx-2 hover:text-primary">Terms & Conditions</Link>
+          <Link href="/terms-and-conditions" className="mx-2 hover:text-primary">Terms & Conditions</Link> |
+          <Link href="/privacy-policy" className="mx-2 hover:text-primary">Privacy Policy</Link>
       </footer>
     </div>
   );
