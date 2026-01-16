@@ -9,6 +9,7 @@ import {
   LogOut,
   Users,
   User,
+  MessageSquare, // Added for support
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -26,6 +27,7 @@ export const navItems = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
   { href: "/dashboard/tasks", icon: ListTodo, label: "Tasks" },
   { href: "/dashboard/withdraw", icon: Bitcoin, label: "Withdraw" },
+  { href: "/dashboard/support", icon: MessageSquare, label: "Support" },
   { href: "/dashboard/admin", icon: Users, label: "Users" },
 ];
 

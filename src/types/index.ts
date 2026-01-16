@@ -41,3 +41,12 @@ export interface SiteUser {
   proxy: string;
   sumsubLink: string;
 }
+
+export interface SupportTicket {
+  id: string;
+  subject: string;
+  category: 'Task Issue' | 'Withdrawal Issue' | 'Account Access' | 'Verification / KYC' | 'Technical Problem' | 'Other';
+  status: 'Open' | 'In Review' | 'Awaiting User' | 'Resolved' | 'Closed';
+  createdAt: Date;
+  updatedAt: Date;
+}
