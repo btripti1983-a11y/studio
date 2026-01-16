@@ -168,6 +168,10 @@ export default function DashboardPage() {
             <CardContent>
                 <p className="text-lg font-semibold">Work can be started from 9:00 AM UTC onwards.</p>
                 <p className="text-muted-foreground">Please adhere to the schedule for task availability.</p>
+                <div className="mt-4 rounded-md border border-amber-300 bg-amber-50 p-3">
+                    <p className="text-sm font-semibold text-amber-800">Important Announcement</p>
+                    <p className="text-sm text-amber-700">From 16 Jan 2026 to 30 Jan 2026, work time will be announced.</p>
+                </div>
             </CardContent>
         </Card>
       </div>
