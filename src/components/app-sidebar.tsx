@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import {
   Bitcoin,
@@ -48,9 +49,14 @@ export function AppSidebar() {
       <nav className="flex flex-col items-center gap-4 px-2 sm:py-5">
         <Link
           href="/dashboard"
-          className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary-foreground text-lg font-semibold text-primary md:h-8 md:w-8 md:text-base"
+          className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary-foreground md:h-8 md:w-8"
         >
-          <span className="font-bold">S</span>
+          <Image
+            src="https://res.cloudinary.com/deawcz3cy/image/upload/v1768555145/download_czwjhc.png"
+            width={24}
+            height={24}
+            alt="Sumsub Dutch Rewards Logo"
+          />
           <span className="sr-only">Sumsub Dutch Rewards</span>
         </Link>
         {navItems.map((item) => (

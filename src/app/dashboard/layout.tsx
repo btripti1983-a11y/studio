@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/use-auth';
 import { AppSidebar, navItems } from '@/components/app-sidebar';
@@ -61,9 +62,14 @@ export default function DashboardLayout({
               <nav className="grid gap-6 text-lg font-medium">
                 <Link
                   href="/dashboard"
-                  className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary-foreground text-lg font-semibold text-primary md:text-base"
+                  className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary-foreground"
                 >
-                  <span className="font-bold">S</span>
+                  <Image
+                    src="https://res.cloudinary.com/deawcz3cy/image/upload/v1768555145/download_czwjhc.png"
+                    width={32}
+                    height={32}
+                    alt="Sumsub Dutch Rewards Logo"
+                  />
                   <span className="sr-only">Sumsub Dutch Rewards</span>
                 </Link>
                 {navItems.map((item) => (

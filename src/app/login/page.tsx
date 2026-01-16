@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useAuth } from '@/hooks/use-auth';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -48,6 +49,13 @@ export default function LoginPage() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
       <main className="flex w-full max-w-sm flex-1 flex-col items-center justify-center">
+        <Image
+          src="https://res.cloudinary.com/deawcz3cy/image/upload/v1768555145/download_czwjhc.png"
+          width={64}
+          height={64}
+          alt="Sumsub Dutch Rewards Logo"
+          className="mb-4 rounded-lg"
+        />
         <Card className="w-full">
           <CardHeader>
             <CardTitle className="text-2xl">Enter Access Code</CardTitle>

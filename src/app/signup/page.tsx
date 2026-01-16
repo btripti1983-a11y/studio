@@ -1,12 +1,20 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
 export default function SignupPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background p-4">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
+      <Image
+        src="https://res.cloudinary.com/deawcz3cy/image/upload/v1768555145/download_czwjhc.png"
+        width={64}
+        height={64}
+        alt="Sumsub Dutch Rewards Logo"
+        className="mb-4 rounded-lg"
+      />
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle className="text-2xl">Request Access</CardTitle>
