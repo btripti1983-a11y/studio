@@ -3,3 +3,4 @@ config();
 
 import '@/ai/flows/summarize-submitted-task.ts';
 import '@/ai/flows/smart-balance-update.ts';
+import '@/ai/flows/ask-ai-flow.ts';
