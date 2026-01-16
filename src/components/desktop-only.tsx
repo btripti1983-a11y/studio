@@ -1,26 +1,24 @@
 "use client";
 
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "./ui/card";
-import { Smartphone } from "lucide-react";
+import { Smartphone, Loader2 } from "lucide-react";
 
 export function DesktopOnly({ children }: { children: React.ReactNode }) {
-    const isMobile = useIsMobile();
-    const [showContent, setShowContent] = useState(false);
+    const isMobile = useIsMobile(); // This can return true, false, or undefined initially.
 
-    useEffect(() => {
-        // This ensures we don't show anything on the server,
-        // and only show content on the client after checking the device.
-        setShowContent(true);
-    }, []);
-
-    if (!showContent) {
-        // Render nothing on the server to avoid hydration issues,
-        // you can also render a loader here.
-        return null;
+    // While we are waiting for the client-side check to complete,
+    // isMobile will be undefined. We should show a loader to prevent
+    // flashing the page content before the restriction is enforced.
+    if (isMobile === undefined) {
+        return (
+            <div className="flex h-screen w-full items-center justify-center bg-background">
+                <Loader2 className="h-8 w-8 animate-spin" />
+            </div>
+        );
     }
 
+    // If the hook confirms it's a mobile device, show the blocking message.
     if (isMobile) {
         return (
             <div className="flex h-screen w-full items-center justify-center bg-background p-4">
@@ -30,7 +28,7 @@ export function DesktopOnly({ children }: { children: React.ReactNode }) {
                             <Smartphone /> Mobile Access Denied
                         </CardTitle>
                         <CardDescription>
-                            This application is only available on desktop devices.
+                            This application is designed for desktop use only.
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
@@ -41,5 +39,6 @@ export function DesktopOnly({ children }: { children: React.ReactNode }) {
         );
     }
 
+    // If it's not a mobile device, render the actual application.
     return <>{children}</>;
 }
