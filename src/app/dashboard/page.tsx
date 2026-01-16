@@ -91,13 +91,16 @@ const faqItems = [
 ];
 
 const faceVerificationUsers = [
-    { email: "rahul.sharma@demo-mail.in", id: "1001", required: "Yes" },
-    { email: "ananya.roy@demo-mail.in", id: "1002", required: "No" },
-    { email: "rohit.verma@demo-mail.in", id: "1003", required: "Yes" },
-    { email: "priya.mukherjee@demo-mail.in", id: "1004", required: "Yes" },
-    { email: "amit.patel@demo-mail.in", id: "1005", required: "No" },
-    { email: "neha.singh@demo-mail.in", id: "1006", required: "Yes" },
-    { email: "arjun.nair@demo-mail.in", id: "1007", required: "No" },
+    { email: "arjun.nova27@gmail.com", id: "1001", required: "No" },
+    { email: "misty.cloud88@outlook.com", id: "1002", required: "No" },
+    { email: "pixelhawk_91@gmail.com", id: "1003", required: "No" },
+    { email: "blueorbit.mail@icloud.com", id: "1004", required: "No" },
+    { email: "zenithflow22@outlook.com", id: "1005", required: "No" },
+    { email: "silentbyte.dev@gmail.com", id: "1006", required: "No" },
+    { email: "lunar_echo5@icloud.com", id: "1007", required: "No" },
+    { email: "rapidwave.pro@outlook.com", id: "1008", required: "No" },
+    { email: "neonforest.x@gmail.com", id: "1009", required: "No" },
+    { email: "frostline.mail@icloud.com", id: "1010", required: "No" },
 ];
 
 

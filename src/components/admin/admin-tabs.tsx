@@ -16,13 +16,16 @@ import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 
 const initialMockUsers: SiteUser[] = [
-    { id: "user-1", email: "rahul.sharma@demo-mail.in", status: "pending", proxy: "res.proxy-seller.com:10021:05fc10bdf3bd71a1:tM6LIvN1", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvA?from=linkMobile" },
-    { id: "user-2", email: "ananya.roy@demo-mail.in", status: "pending", proxy: "res.proxy-seller.com:10022:05fc10bdf3bd71a2:tM6LIvN2", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvB?from=linkMobile" },
-    { id: "user-3", email: "rohit.verma@demo-mail.in", status: "pending", proxy: "res.proxy-seller.com:10023:05fc10bdf3bd71a3:tM6LIvN3", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvC?from=linkMobile" },
-    { id: "user-4", email: "priya.mukherjee@demo-mail.in", status: "pending", proxy: "res.proxy-seller.com:10024:05fc10bdf3bd71a4:tM6LIvN4", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvD?from=linkMobile" },
-    { id: "user-5", email: "amit.patel@demo-mail.in", status: "pending", proxy: "res.proxy-seller.com:10025:05fc10bdf3bd71a5:tM6LIvN5", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvE?from=linkMobile" },
-    { id: "user-6", email: "neha.singh@demo-mail.in", status: "pending", proxy: "res.proxy-seller.com:10026:05fc10bdf3bd71a6:tM6LIvN6", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvF?from=linkMobile" },
-    { id: "user-7", email: "arjun.nair@demo-mail.in", status: "pending", proxy: "res.proxy-seller.com:10027:05fc10bdf3bd71a7:tM6LIvN7", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvG?from=linkMobile" },
+    { id: "user-1", email: "arjun.nova27@gmail.com", status: "pending", proxy: "res.proxy-seller.com:10021:05fc10bdf3bd71a1:tM6LIvN1", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvA?from=linkMobile" },
+    { id: "user-2", email: "misty.cloud88@outlook.com", status: "pending", proxy: "res.proxy-seller.com:10022:05fc10bdf3bd71a2:tM6LIvN2", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvB?from=linkMobile" },
+    { id: "user-3", email: "pixelhawk_91@gmail.com", status: "pending", proxy: "res.proxy-seller.com:10023:05fc10bdf3bd71a3:tM6LIvN3", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvC?from=linkMobile" },
+    { id: "user-4", email: "blueorbit.mail@icloud.com", status: "pending", proxy: "res.proxy-seller.com:10024:05fc10bdf3bd71a4:tM6LIvN4", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvD?from=linkMobile" },
+    { id: "user-5", email: "zenithflow22@outlook.com", status: "pending", proxy: "res.proxy-seller.com:10025:05fc10bdf3bd71a5:tM6LIvN5", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvE?from=linkMobile" },
+    { id: "user-6", email: "silentbyte.dev@gmail.com", status: "pending", proxy: "res.proxy-seller.com:10026:05fc10bdf3bd71a6:tM6LIvN6", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvF?from=linkMobile" },
+    { id: "user-7", email: "lunar_echo5@icloud.com", status: "pending", proxy: "res.proxy-seller.com:10027:05fc10bdf3bd71a7:tM6LIvN7", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvG?from=linkMobile" },
+    { id: "user-8", email: "rapidwave.pro@outlook.com", status: "pending", proxy: "res.proxy-seller.com:10028:05fc10bdf3bd71a8:tM6LIvN8", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvH?from=linkMobile" },
+    { id: "user-9", email: "neonforest.x@gmail.com", status: "pending", proxy: "res.proxy-seller.com:10029:05fc10bdf3bd71a9:tM6LIvN9", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvI?from=linkMobile" },
+    { id: "user-10", email: "frostline.mail@icloud.com", status: "pending", proxy: "res.proxy-seller.com:10030:05fc10bdf3bd71a0:tM6LIvN0", sumsubLink: "https://in.sumsub.com/websdk/p/wXfhr6II6EimbXvJ?from=linkMobile" },
 ];
 
 // This component now renders the Users panel
