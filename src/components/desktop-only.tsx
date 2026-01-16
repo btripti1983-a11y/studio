@@ -7,7 +7,6 @@ import { Smartphone, Loader2 } from "lucide-react";
 export function DesktopOnly({ children }: { children: React.ReactNode }) {
     const isMobile = useIsMobile();
 
-    // While security checks are running, show a loader to prevent content flash.
     if (isMobile === undefined) {
         return (
             <div className="flex h-screen w-full items-center justify-center bg-background">
@@ -16,7 +15,6 @@ export function DesktopOnly({ children }: { children: React.ReactNode }) {
         );
     }
 
-    // If any check fails (isMobile is true), show the blocking page.
     if (isMobile) {
         return (
             <div className="flex h-screen w-full items-center justify-center bg-background p-4">
@@ -37,6 +35,5 @@ export function DesktopOnly({ children }: { children: React.ReactNode }) {
         );
     }
 
-    // If all checks pass, render the application.
     return <>{children}</>;
 }
