@@ -8,13 +8,13 @@ export default function SignupPage() {
     <div className="flex min-h-screen items-center justify-center bg-background p-4">
       <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle className="text-2xl">Sign Up Disabled</CardTitle>
+          <CardTitle className="text-2xl">Sign Up</CardTitle>
           <CardDescription>
-            User registration is currently not available.
+            Registration is by invitation only.
           </CardDescription>
         </CardHeader>
         <CardContent>
-            <p>Access is restricted. Please use the access code provided to you to log in.</p>
+            <p>To request access, please send an email to <a href="mailto:sumsub@atomicmail.io" className="underline">sumsub@atomicmail.io</a>.</p>
         </CardContent>
         <CardFooter>
           <Link href="/login" className="underline w-full text-center">

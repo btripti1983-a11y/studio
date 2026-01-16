@@ -55,9 +55,6 @@ export default function LoginPage() {
                 onChange={(e) => setCode(e.target.value)}
               />
             </div>
-             <CardDescription className="text-xs">
-              Hint: the code is `sumsub`
-            </CardDescription>
           </CardContent>
           <CardFooter>
             <Button className="w-full" type="submit" disabled={loading}>

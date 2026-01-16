@@ -13,15 +13,14 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const mockUser: UserProfile = {
-  uid: 'mock-admin-uid',
+  uid: 'mock-user-uid',
   email: 'demo@user.com',
   name: 'Demo User',
-  isAdmin: true,
-  balance: 1337.42,
+  balance: 0,
 };
 
 // The access code to log in
-const ACCESS_CODE = 'sumsub';
+const ACCESS_CODE = 'Subhro2007';
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<UserProfile | null>(null);
@@ -40,7 +39,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setLoading(true);
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
-    if (code.toLowerCase() === ACCESS_CODE) {
+    if (code === ACCESS_CODE) {
       setUser(mockUser);
       localStorage.setItem('user_session', 'true');
     } else {

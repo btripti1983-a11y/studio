@@ -8,7 +8,7 @@ import {
   ListTodo,
   LogOut,
   PanelLeft,
-  ShieldCheck,
+  Users,
   User,
 } from "lucide-react";
 
@@ -28,10 +28,7 @@ const navItems = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
   { href: "/dashboard/tasks", icon: ListTodo, label: "Tasks" },
   { href: "/dashboard/withdraw", icon: Bitcoin, label: "Withdraw" },
-];
-
-const adminNavItems = [
-  { href: "/dashboard/admin", icon: ShieldCheck, label: "Admin" },
+  { href: "/dashboard/admin", icon: Users, label: "Users" },
 ];
 
 export function AppSidebar() {
@@ -44,7 +41,7 @@ export function AppSidebar() {
     router.push("/login");
   };
 
-  const allNavItems = user?.isAdmin ? [...navItems, ...adminNavItems] : navItems;
+  const allNavItems = navItems;
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-card">

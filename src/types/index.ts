@@ -2,7 +2,6 @@ export interface UserProfile {
   uid: string;
   email: string | null;
   name: string | null;
-  isAdmin?: boolean;
   balance: number;
 }
 
@@ -32,4 +31,12 @@ export interface Withdrawal {
   amount: number;
   status: 'pending' | 'approved' | 'rejected';
   createdAt: Date;
+}
+
+export interface SiteUser {
+  id: string;
+  email: string;
+  status: 'verified' | 'pending' | 'rejected';
+  proxy: string;
+  sumsubLink: string;
 }
