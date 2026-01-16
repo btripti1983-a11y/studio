@@ -75,6 +75,7 @@ export function WithdrawalForm() {
                 <CardTitle>Request Withdrawal</CardTitle>
                 <CardDescription>Select your currency, enter your wallet address, and the amount you wish to withdraw.</CardDescription>
                  <CardDescription className="pt-2">Available to withdraw: <span className="font-bold text-primary">${balance.toFixed(2)}</span></CardDescription>
+                 <CardDescription className="pt-2 text-yellow-400">Minimum withdrawal requires 5 verified accounts.</CardDescription>
             </CardHeader>
             <form onSubmit={handleSubmit}>
                 <CardContent className="space-y-4">
