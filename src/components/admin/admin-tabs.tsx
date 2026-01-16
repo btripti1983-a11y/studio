@@ -16,10 +16,13 @@ import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 
 const initialMockUsers: SiteUser[] = [
-  { id: "user-1", email: "john.doe@example.com", status: "verified", proxy: "192.168.1.1", sumsubLink: "https://sumsub.com/user/1" },
-  { id: "user-2", email: "jane.smith@example.com", status: "pending", proxy: "192.168.1.2", sumsubLink: "https://sumsub.com/user/2" },
-  { id: "user-3", email: "peter.jones@example.com", status: "rejected", proxy: "192.168.1.3", sumsubLink: "https://sumsub.com/user/3" },
-  { id: "user-4", email: "susan.williams@example.com", status: "verified", proxy: "192.168.1.4", sumsubLink: "https://sumsub.com/user/4" },
+    { id: "user-1", email: "user.one@example.com", status: "pending", proxy: "192.168.1.10", sumsubLink: "https://sumsub.com/user/10" },
+    { id: "user-2", email: "user.two@example.com", status: "pending", proxy: "10.0.0.5", sumsubLink: "https://sumsub.com/user/11" },
+    { id: "user-3", email: "user.three@example.com", status: "pending", proxy: "172.16.0.23", sumsubLink: "https://sumsub.com/user/12" },
+    { id: "user-4", email: "user.four@example.com", status: "pending", proxy: "203.0.113.45", sumsubLink: "https://sumsub.com/user/13" },
+    { id: "user-5", email: "user.five@example.com", status: "pending", proxy: "198.51.100.8", sumsubLink: "https://sumsub.com/user/14" },
+    { id: "user-6", email: "user.six@example.com", status: "pending", proxy: "192.0.2.1", sumsubLink: "https://sumsub.com/user/15" },
+    { id: "user-7", email: "user.seven@example.com", status: "pending", proxy: "8.8.8.8", sumsubLink: "https://sumsub.com/user/16" },
 ];
 
 // This component now renders the Users panel
