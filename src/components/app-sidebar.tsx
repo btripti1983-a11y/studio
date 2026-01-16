@@ -31,6 +31,7 @@ export const navItems = [
   { href: "/dashboard/withdraw", icon: Bitcoin, label: "Withdraw" },
   { href: "/dashboard/support", icon: MessageSquare, label: "Support" },
   { href: "/dashboard/team", icon: UsersRound, label: "Team" },
+  { href: "/dashboard/profile", icon: User, label: "Profile" },
   { href: "/dashboard/admin", icon: Users, label: "Users" },
 ];
 

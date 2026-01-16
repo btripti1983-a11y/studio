@@ -103,6 +103,13 @@ export default function DashboardLayout({
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>{user?.name || "My Account"}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <Link href="/dashboard/profile" className="flex items-center w-full">
+                    <User className="mr-2 h-4 w-4" />
+                    Profile
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleLogout}>
                   <LogOut className="mr-2 h-4 w-4" />
                   Logout
