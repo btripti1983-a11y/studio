@@ -3,8 +3,10 @@
 import { useAuth } from "@/hooks/use-auth";
 import { OverviewCards } from "@/components/dashboard/overview-cards";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
 
 import { 
   Activity, 
@@ -16,6 +18,8 @@ import {
   CircleDollarSign,
   Star,
   Bitcoin,
+  Clock,
+  UserCheck,
 } from "lucide-react";
 
 // Data for new sections
@@ -86,6 +90,16 @@ const faqItems = [
     }
 ];
 
+const faceVerificationUsers = [
+    { email: "rahul.sharma@demo-mail.in", id: "1001", required: "Yes" },
+    { email: "ananya.roy@demo-mail.in", id: "1002", required: "No" },
+    { email: "rohit.verma@demo-mail.in", id: "1003", required: "Yes" },
+    { email: "priya.mukherjee@demo-mail.in", id: "1004", required: "Yes" },
+    { email: "amit.patel@demo-mail.in", id: "1005", required: "No" },
+    { email: "neha.singh@demo-mail.in", id: "1006", required: "Yes" },
+    { email: "arjun.nair@demo-mail.in", id: "1007", required: "No" },
+];
+
 
 const StarRating = ({ rating }: { rating: number }) => (
   <div className="flex items-center gap-1 text-yellow-400">
@@ -112,6 +126,48 @@ export default function DashboardPage() {
       </div>
 
       <OverviewCards />
+
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <Card className="lg:col-span-2">
+            <CardHeader>
+                <CardTitle className="flex items-center gap-2"><UserCheck className="h-6 w-6 text-primary" /> Face Verification Status</CardTitle>
+                <CardDescription>Check if face verification is required for users.</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <Table>
+                    <TableHeader>
+                        <TableRow>
+                            <TableHead>User ID</TableHead>
+                            <TableHead>Email</TableHead>
+                            <TableHead className="text-right">Face Verification</TableHead>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        {faceVerificationUsers.map((user) => (
+                            <TableRow key={user.id}>
+                                <TableCell className="font-semibold">{user.id}</TableCell>
+                                <TableCell>{user.email}</TableCell>
+                                <TableCell className="text-right">
+                                    <Badge variant={user.required === 'Yes' ? 'destructive' : 'default'} className={user.required === 'Yes' ? '' : 'bg-green-500 hover:bg-green-500/90 text-primary-foreground'}>
+                                        {user.required === 'Yes' ? 'Required' : 'Not Required'}
+                                    </Badge>
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </CardContent>
+        </Card>
+        <Card>
+            <CardHeader>
+                <CardTitle className="flex items-center gap-2"><Clock className="h-6 w-6 text-primary" /> Work Schedule</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <p className="text-lg font-semibold">Work can be started from 9:00 AM UTC onwards.</p>
+                <p className="text-muted-foreground">Please adhere to the schedule for task availability.</p>
+            </CardContent>
+        </Card>
+      </div>
       
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* How It Works Section */}
