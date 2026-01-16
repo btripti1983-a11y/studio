@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { AuthProvider } from '@/hooks/use-auth';
@@ -9,11 +9,6 @@ import { DesktopOnly } from '@/components/desktop-only';
 const fontInter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
-});
-
-const fontSpaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk',
 });
 
 export const metadata: Metadata = {
@@ -31,8 +26,7 @@ export default function RootLayout({
       <body
         className={cn(
           'min-h-screen bg-background font-body antialiased',
-          fontInter.variable,
-          fontSpaceGrotesk.variable
+          fontInter.variable
         )}
       >
         <AuthProvider>

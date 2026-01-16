@@ -67,7 +67,7 @@ export function WithdrawalForm() {
     return (
         <Card>
             <CardHeader>
-                <CardTitle className="font-headline">Request Withdrawal</CardTitle>
+                <CardTitle>Request Withdrawal</CardTitle>
                 <CardDescription>Enter your BTC wallet address and the amount you wish to withdraw.</CardDescription>
                  <CardDescription className="pt-2">Available to withdraw: <span className="font-bold text-primary">${balance.toFixed(2)}</span></CardDescription>
             </CardHeader>

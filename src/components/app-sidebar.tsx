@@ -54,7 +54,7 @@ export function AppSidebar() {
             href="/dashboard"
             className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
           >
-            <span className="font-headline">S</span>
+            <span className="font-bold">S</span>
             <span className="sr-only">Sumsub Dutch Rewards</span>
           </Link>
           {allNavItems.map((item) => (
@@ -108,7 +108,7 @@ export function AppSidebar() {
                 href="/dashboard"
                 className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
               >
-                <span className="font-headline">S</span>
+                <span className="font-bold">S</span>
                 <span className="sr-only">Sumsub Dutch Rewards</span>
               </Link>
               {allNavItems.map((item) => (

@@ -43,7 +43,7 @@ export function TaskForm() {
     return (
         <Card>
             <CardHeader>
-                <CardTitle className="font-headline">New Task</CardTitle>
+                <CardTitle>New Task</CardTitle>
                 <CardDescription>Answer the question below to earn rewards.</CardDescription>
             </CardHeader>
             <form onSubmit={handleSubmit}>

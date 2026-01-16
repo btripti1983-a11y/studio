@@ -23,7 +23,7 @@ export function ProxyStatusTable() {
   return (
     <Card>
        <CardHeader>
-        <CardTitle className="font-headline">Proxy/Link Status</CardTitle>
+        <CardTitle>Proxy/Link Status</CardTitle>
         <CardDescription>
             Live status of available proxies and links.
         </CardDescription>

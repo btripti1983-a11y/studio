@@ -6,9 +6,8 @@ import type { UserProfile } from '@/types';
 interface AuthContextType {
   user: UserProfile | null;
   loading: boolean;
-  login: (email: string, pass: string) => Promise<void>;
+  loginWithCode: (code: string) => Promise<void>;
   logout: () => Promise<void>;
-  signup: (email: string, pass: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -20,6 +19,9 @@ const mockUser: UserProfile = {
   isAdmin: true,
   balance: 1337.42,
 };
+
+// The access code to log in
+const ACCESS_CODE = 'sumsub';
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<UserProfile | null>(null);
@@ -34,15 +36,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setLoading(false);
   }, []);
 
-  const login = async (email: string, pass: string) => {
+  const loginWithCode = async (code: string) => {
     setLoading(true);
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
-    if (email === 'demo@user.com' && pass === 'password') {
+    if (code.toLowerCase() === ACCESS_CODE) {
       setUser(mockUser);
       localStorage.setItem('user_session', 'true');
     } else {
-      throw new Error('Invalid credentials');
+      throw new Error('Invalid access code');
     }
     setLoading(false);
   };
@@ -56,18 +58,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setLoading(false);
   };
 
-  const signup = async (email: string, pass: string) => {
-    setLoading(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    // In a real app, you would create a new user here.
-    // For the mock, we'll just log them in as the demo user.
-    setUser(mockUser);
-    localStorage.setItem('user_session', 'true');
-    setLoading(false);
-  };
-
-  const value = { user, loading, login, logout, signup };
+  const value = { user, loading, loginWithCode, logout };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
