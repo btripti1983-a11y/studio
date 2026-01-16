@@ -12,10 +12,10 @@ import {
 
 // Mock data
 const taskStats = {
-  submitted: 49,
-  pending: 5,
-  approved: 42,
-  rejected: 2,
+  submitted: 7,
+  pending: 7,
+  approved: 0,
+  rejected: 0,
 };
 
 export function OverviewCards() {
